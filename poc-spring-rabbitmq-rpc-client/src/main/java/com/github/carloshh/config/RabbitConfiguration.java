@@ -1,6 +1,6 @@
 package com.github.carloshh.config;
 
-import com.github.carloshh.service.ReverseStringService;
+import com.github.carloshh.service.StringService;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -22,7 +22,7 @@ public class RabbitConfiguration {
 
     @Bean AmqpProxyFactoryBean amqpFactoryBean(AmqpTemplate amqpTemplate) {
         var amqpProxyFactoryBean = new AmqpProxyFactoryBean();
-        amqpProxyFactoryBean.setServiceInterface(ReverseStringService.class);
+        amqpProxyFactoryBean.setServiceInterface(StringService.class);
         amqpProxyFactoryBean.setAmqpTemplate(amqpTemplate);
         return amqpProxyFactoryBean;
     }

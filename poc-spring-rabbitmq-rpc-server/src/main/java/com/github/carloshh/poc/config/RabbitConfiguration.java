@@ -1,6 +1,6 @@
 package com.github.carloshh.poc.config;
 
-import com.github.carloshh.poc.service.ReverseStringService;
+import com.github.carloshh.poc.service.StringService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -24,9 +24,9 @@ public class RabbitConfiguration {
     }
 
     @Bean
-    AmqpInvokerServiceExporter reverseStringServiceExporter(ReverseStringService implementation, AmqpTemplate template) {
+    AmqpInvokerServiceExporter reverseStringServiceExporter(StringService implementation, AmqpTemplate template) {
         var amqpInvokerServiceExporter = new AmqpInvokerServiceExporter();
-        amqpInvokerServiceExporter.setServiceInterface(ReverseStringService.class);
+        amqpInvokerServiceExporter.setServiceInterface(StringService.class);
         amqpInvokerServiceExporter.setService(implementation);
         amqpInvokerServiceExporter.setAmqpTemplate(template);
         amqpInvokerServiceExporter.setMessageConverter(jacksonMessageConverter());

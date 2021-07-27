@@ -1,7 +1,9 @@
 package com.github.carloshh.service;
 
-public interface ReverseStringService {
+public interface StringService {
 
     String reverse(String text);
+
+    String uppercase(String text);
 
 }
